@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue sur Covoiturage</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <style>
+        /* Reset and basic styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #007bff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card styles */
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+    <h1>Covoiturage</h1>
+    <ul>
+        <li><a th:href="@{/}">Accueil</a></li>
+        <li><a th:href="@{/drivers}">Conducteurs</a></li>
+        <li><a th:href="@{/passengers}">Passagers</a></li>
+        <li><a th:href="@{/rides}">Trajets</a></li>
+    </ul>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="card">
+        <h2>Gestion des Conducteurs</h2>
+        <p>Ajoutez, modifiez et gérez les informations des conducteurs.</p>
+        <a th:href="@{/drivers}">Accéder</a>
+    </div>
+
+    <div class="card">
+        <h2>Gestion des Passagers</h2>
+        <p>Visualisez et gérez les détails des passagers.</p>
+        <a th:href="@{/passengers}">Accéder</a>
+    </div>
+
+    <div class="card">
+        <h2>Gestion des Trajets</h2>
+        <p>Planifiez et gérez les trajets disponibles pour le covoiturage.</p>
+        <a th:href="@{/rides}">Accéder</a>
+    </div>
+</div>
+</body>
+</html>

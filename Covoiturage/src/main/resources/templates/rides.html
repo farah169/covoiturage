@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Trajets</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+    <h1>Covoiturage</h1>
+    <ul>
+        <li><a th:href="@{/}">Accueil</a></li>
+        <li><a th:href="@{/drivers}">Conducteurs</a></li>
+        <li><a th:href="@{/passengers}">Passagers</a></li>
+        <li><a th:href="@{/rides}">Trajets</a></li>
+    </ul>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <h2>Gestion des Trajets</h2>
+
+    <!-- Add Ride Button -->
+    <div class="add-ride">
+        <a th:href="@{/rides/add}" class="btn btn-primary">Ajouter un Trajet</a>
+    </div>
+
+    <!-- Rides Table -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Départ</th>
+            <th>Destination</th>
+            <th>Date</th>
+            <th>Prix</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ride : ${rides}">
+            <td th:text="${ride.id}"></td>
+            <td th:text="${ride.departure}"></td>
+            <td th:text="${ride.destination}"></td>
+            <td th:text="${ride.date}"></td>
+            <td th:text="${ride.price}"></td>
+            <td class="actions">
+                <a th:href="@{'/rides/edit/' + ${ride.id}}">Modifier</a>
+                <a th:href="@{'/rides/delete/' + ${ride.id}}">Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
